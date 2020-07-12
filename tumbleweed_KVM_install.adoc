@@ -34,7 +34,7 @@ sudo hostnamectl set-hostname tumbleweed
 ----
 
 ----
-zypper -n install systemd-coredump python-xml python3-devel gcc ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
+zypper -n install libwrap* systemd-coredump python-xml python3-devel gcc ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
 ----
 
 ----
