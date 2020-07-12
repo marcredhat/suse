@@ -6,10 +6,6 @@ AppArmor - provides mandatory access control:  an admin decides (usually based o
 
 
 ----
-zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
-----
-
-----
 AppArmor: https://medium.com/information-and-technology/so-what-is-apparmor-64d7ae211ed
 PAM: https://medium.com/information-and-technology/wtf-is-pam-99a16c80ac57
 ----
