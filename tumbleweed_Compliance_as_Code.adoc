@@ -51,3 +51,21 @@ To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION
 ----
 sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
 ----
+
+
+----
+marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install ansible --user
+
+marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install virtualenv --user
+----
+
+----
+marc@tumbleweed:~/scap-security-guide-0.1.50> python3 -m virtualenv molecule_ansible
+
+marc@tumbleweed:~/scap-security-guide-0.1.50> source molecule_ansible/bin/activate
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50>
+----
+
+----
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install xml ansible testinfra molecule podman python-vagrant ansible-lint flake8 molecule[lint] molecule[podman]
+----
