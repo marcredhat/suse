@@ -49,5 +49,5 @@ To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION
 ----
 
 ----
-ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml
+sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
 ----
