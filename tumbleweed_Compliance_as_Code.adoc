@@ -1,3 +1,12 @@
 ----
 https://github.com/ComplianceAsCode/content/releases/tag/v0.1.50
 ----
+
+----
+Profiles
+sle15: cis, standard
+----
+
+----
+wget https://github.com/ComplianceAsCode/content/releases/download/v0.1.50/scap-security-guide-0.1.50.zip
+----
