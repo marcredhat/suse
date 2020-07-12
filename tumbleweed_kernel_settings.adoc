@@ -1,0 +1,12 @@
+
+----
+Store the output of the kernel settings (for comparison or reference)
+sudo sysctl -A > /root/sysctl.settings.store
+----
+
+----
+Place parameters that you want reset at reboot in /etc/sysctl.conf 
+They can be inserted immediately (into the running kernel) by running the command sysctl -p.
+Many third-party applications like Oracle, SAP, DB2, Websphere, etc. recommend changing kernel parameters to
+ensure high performance for I/O or CPU processing. 
+----
