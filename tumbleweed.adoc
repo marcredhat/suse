@@ -50,8 +50,15 @@ tmux  new -s aa-genprof
 sudo aa-genprof example.sh
 
 
-Useful tmux commands:
 ctrl-b d to detach
-tmux ls
+./example.sh
 tmux attach-session -t aa-genprof
+Scan
+[(S)can system log for AppArmor events] / (F)inish
+Reading log entries from /var/log/audit/audit.log.
+Updating AppArmor profiles in /etc/apparmor.d.
+
+Profile:  /home/marc/example.sh
+Execute:  /usr/bin/touch
+Severity: 3
 ----
