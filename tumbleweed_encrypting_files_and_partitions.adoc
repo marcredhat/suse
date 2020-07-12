@@ -9,4 +9,6 @@ sudo yast
 Go to System / Partitioner
 ----
 
-image::images/yast_partitioner.png
+
+image:./images/yast_partitioner.png[title="YaST Paritioner"]
+
