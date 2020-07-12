@@ -1,3 +1,8 @@
+
+----
+https://www.openwall.com/john/doc/EXAMPLES.shtml
+----
+
 ----
 marc@localhost:~> sudo unshadow /etc/passwd /etc/shadow > /tmp/crack.password.db
 
