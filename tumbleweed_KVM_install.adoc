@@ -34,5 +34,5 @@ sudo hostnamectl set-hostname tumbleweed
 ----
 
 ----
-zypper -n install gcc ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
+zypper -n install python3-devel gcc ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
 ----
