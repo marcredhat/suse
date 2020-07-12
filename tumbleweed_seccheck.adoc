@@ -1,0 +1,6 @@
+
+----
+marc@localhost:~> sudo ls /usr/lib/secchk/
+autologout.sh  blurbs           helper.inc           security_daily_helper.inc  security-monthly.sh         security-weekly.sh
+basic.inc      checkneverlogin  security-control.sh  security-daily.sh          security_weekly_helper.inc  user_group_password_helper.inc
+----
