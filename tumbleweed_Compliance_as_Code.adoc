@@ -9,4 +9,22 @@ sle15: cis, standard
 
 ----
 wget https://github.com/ComplianceAsCode/content/releases/download/v0.1.50/scap-security-guide-0.1.50.zip
+unzip scap-security-guide-0.1.50.zip
+----
+
+
+----
+marc@localhost:~> cd scap-security-guide-0.1.50/
+----
+
+----
+marc@localhost:~/scap-security-guide-0.1.50> ls -latr | grep 'suse\|sle'
+-rw-r--r-- 1 marc users  6524432 May 15 03:14 ssg-sle15-ds.xml
+-rw-r--r-- 1 marc users  4107849 May 15 03:14 ssg-sle12-ds.xml
+-rw-r--r-- 1 marc users  3950193 May 15 03:14 ssg-sle11-ds.xml
+-rw-r--r-- 1 marc users  3901237 May 15 03:14 ssg-opensuse-ds.xml
+-rw-r--r-- 1 marc users  3901237 May 15 03:14 ssg-opensuse-ds-1.2.xml
+-rw-r--r-- 1 marc users  6524114 May 15 03:14 ssg-sle15-ds-1.2.xml
+-rw-r--r-- 1 marc users  4107531 May 15 03:14 ssg-sle12-ds-1.2.xml
+-rw-r--r-- 1 marc users  3950193 May 15 03:14 ssg-sle11-ds-1.2.xml
 ----
