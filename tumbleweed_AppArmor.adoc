@@ -35,7 +35,7 @@ PRETTY_NAME="openSUSE Tumbleweed"
 ----
 
 ----
-zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux
+zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux aide
 ----
 
 ----
