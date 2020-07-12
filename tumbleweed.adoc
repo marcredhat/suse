@@ -35,3 +35,11 @@ zypper install ansible podman skopeo buildah
 ----
 https://medium.com/information-and-technology/so-what-is-apparmor-64d7ae211ed
 ----
+
+
+----
+marc@localhost:~> sudo aa-status | more
+apparmor module is loaded.
+50 profiles are loaded.
+49 profiles are in enforce mode.
+----
