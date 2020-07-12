@@ -114,3 +114,23 @@ Adding owner /home/*/data/sample.txt w, to profile.
 ----
 Save and Finish
 ----
+
+----
+marc@localhost:/etc/apparmor.d> sudo cat home.marc.example.sh
+# Last Modified: Sat Jul 11 20:04:33 2020
+#include <tunables/global>
+
+/home/marc/example.sh {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+
+  /home/marc/example.sh r,
+  /usr/bin/bash ix,
+  /usr/bin/rm mrix,
+  /usr/bin/touch mrix,
+  owner /home/*/data/sample.txt w,
+  owner /home/*/sample.txt w,
+
+}
+----
