@@ -1,0 +1,5 @@
+----
+marc@localhost:~> sudo unshadow /etc/passwd /etc/shadow > /tmp/crack.password.db
+marc@localhost:~> sudo john --show /tmp/crack.password.db
+0 password hashes cracked, 2 left
+----
