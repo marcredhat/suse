@@ -47,7 +47,7 @@ apparmor module is loaded.
 
 ----
 tmux  new -s aa-genprof
-aa-genprof example.sh
+sudo aa-genprof example.sh
 
 
 Useful tmux commands:
