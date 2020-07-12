@@ -38,7 +38,7 @@ zypper -n install systemd-coredump python-xml python3-devel gcc ansible podman s
 ----
 
 ----
-zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2/standard/openSUSE:Leap:15.2.repo
+zypper addrepo https://download.opensuse.org/repositories/security:SELinux/SLE_15_SP1/security:SELinux.repo
 zypper refresh
-zypper install libselinux
+zypper install libselinux*
 ----
