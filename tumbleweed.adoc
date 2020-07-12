@@ -95,3 +95,22 @@ Deny: Deny access to the path with the requested permissions
 Ignore: Skip this prompt, it will appear again the next time you run logprof
 ----
 
+----
+Select Allow
+(A)llow / [(D)eny] / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Audi(t) / Abo(r)t / (F)inish
+Adding #include <abstractions/consoles> to profile.
+
+Profile:  /home/marc/example.sh
+Path:     /home/marc/data/sample.txt
+New Mode: owner w
+Severity: 6
+
+[1 - owner /home/*/data/sample.txt w,]
+2 - owner /home/marc/data/sample.txt w,
+(A)llow / [(D)eny] / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Audi(t) / (O)wner permissions off / Abo(r)t / (F)inish
+Adding owner /home/*/data/sample.txt w, to profile.
+----
+
+----
+Save and Finish
+----
