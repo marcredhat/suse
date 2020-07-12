@@ -4,35 +4,6 @@ PAM - provides discretionary access control:  the owner of the source decides wh
 AppArmor - provides mandatory access control:  an admin decides (usually based on policies) who can access data
 ----
 
-----
-curl -L http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso -o openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-----
-
-
-----
-virt-install --name sle15 --memory 2000 --vcpus 4 --disk size=2000 --os-variant sle15 --connect qemu:///system --graphics vnc  --cdrom /var/lib/libvirt/images/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-----
-
-
-----
-virsh domifaddr sle15
-Name       MAC address          Protocol     Address
-vnet2      52:54:00:62:00:63    ipv4         192.168.122.38/24
-----
-
-----
-ssh marc@192.168.122.38
-----
-
-----
-cat /usr/lib/os-release
-NAME="openSUSE Tumbleweed"
-# VERSION="20200708"
-ID="opensuse-tumbleweed"
-ID_LIKE="opensuse suse"
-VERSION_ID="20200708"
-PRETTY_NAME="openSUSE Tumbleweed"
-----
 
 ----
 zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
