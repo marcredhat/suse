@@ -29,7 +29,7 @@ PRETTY_NAME="openSUSE Tumbleweed"
 ----
 
 ----
-zypper install ansible podman skopeo buildah
+zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux
 ----
 
 ----
@@ -42,4 +42,16 @@ marc@localhost:~> sudo aa-status | more
 apparmor module is loaded.
 50 profiles are loaded.
 49 profiles are in enforce mode.
+----
+
+
+----
+tmux  new -s webserver
+bash -c "python3 -m http.server"
+curl http://localhost:8000
+
+Useful tmux commands:
+ctrl-b d to detach
+tmux ls
+tmux attach-session -t webserver
 ----
