@@ -1,5 +1,4 @@
 
-
 ----
 Copy the hash database to a place that is inaccessible for potential attackers. 
 ----
