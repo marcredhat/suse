@@ -1,3 +1,9 @@
+
+----
+PAM - provides discretionary access control:  the owner of the source decides who can access data
+AppArmor - provides mandatory access control:  an admin decides (usually based on policies) who can access data
+----
+
 ----
 curl -L http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso -o openSUSE-Tumbleweed-DVD-x86_64-Current.iso
 ----
