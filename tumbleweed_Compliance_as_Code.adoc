@@ -43,17 +43,6 @@ marc@localhost:~/scap-security-guide-0.1.50> ls ansible -latr | grep 'suse\|sle'
 
 
 ----
-These Ansible Playbooks are generated from SCAP profiles available for the products.
-
-To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION OF THE MACHINE!)
-----
-
-----
-sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
-----
-
-
-----
 marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install ansible --user
 
 marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install virtualenv --user
@@ -110,6 +99,15 @@ Login Succeeded!
 ----
 
 
+
+
+----
+These Ansible Playbooks are generated from SCAP profiles available for the products.
+
+To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION OF THE MACHINE!)
 ----
 
 ----
+sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
+----
+
