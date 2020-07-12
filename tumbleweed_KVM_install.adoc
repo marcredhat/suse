@@ -42,3 +42,8 @@ zypper addrepo https://download.opensuse.org/repositories/security:SELinux/SLE_1
 zypper refresh
 zypper install libselinux*
 ----
+
+
+----
+sudo chmod -R 400 /etc/ssh/
+----
