@@ -62,3 +62,36 @@ Profile:  /home/marc/example.sh
 Execute:  /usr/bin/touch
 Severity: 3
 ----
+
+
+----
+Inherit: Creates a rule that is denoted by “ix” within the profile, causes the executed binary to inherit permissions from the parent profile.
+Child: Creates a rule that is denoted by “Cx” within the profile, requires a sub-profile to be created within the parent profile and rules must be separately generated for this child (prompts will appear when running scans on the parent).
+Deny: Creates a rule that AppArmor prepends with “deny” at the start of the line within the profile, causes the parents access to the resource be denied.
+Abort: Exits the AppArmor program without saving any changes.
+Finish: Exits the AppArmor program but WILL save changes.
+----
+
+----
+Select Inherit
+----
+
+----
+Complain-mode changes:
+
+Profile:  /home/marc/example.sh
+Path:     /dev/tty
+New Mode: rw
+Severity: 9
+
+[1 - #include <abstractions/consoles>]
+2 - /dev/tty rw,
+(A)llow / [(D)eny] / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Audi(t) / Abo(r)t / (F)inish
+----
+
+----
+Allow: Allow access to the path with the requested permissions
+Deny: Deny access to the path with the requested permissions
+Ignore: Skip this prompt, it will appear again the next time you run logprof
+----
+
