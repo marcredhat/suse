@@ -5,7 +5,8 @@ Copy the hash database to a place that is inaccessible for potential attackers.
 ----
 
 ----
-Run integrity checks from a rescue system (or any other independent system with the target system's file systems mounted manually).
+Run integrity checks from a rescue system 
+(or any other independent system with the target system's file systems mounted manually).
 ----
 
 ----
