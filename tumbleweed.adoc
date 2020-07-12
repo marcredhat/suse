@@ -46,12 +46,12 @@ apparmor module is loaded.
 
 
 ----
-tmux  new -s webserver
-bash -c "python3 -m http.server"
-curl http://localhost:8000
+tmux  new -s aa-genprof
+aa-genprof example.sh
+
 
 Useful tmux commands:
 ctrl-b d to detach
 tmux ls
-tmux attach-session -t webserver
+tmux attach-session -t aa-genprof
 ----
