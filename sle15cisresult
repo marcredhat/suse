@@ -1,0 +1,1288 @@
+
+PLAY [all] ********************************************************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/issue] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/issue] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/motd] *******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/motd] ************************************************************************************************************
+ok: [localhost]
+
+TASK [require single user mode password] **************************************************************************************************************
+ok: [localhost]
+
+TASK [require emergency mode password] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure audit is installed] **********************************************************************************************************************
+ok: [localhost]
+
+TASK [Enable service auditd] **************************************************************************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for audit rule entries for sysadmin actions] **************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/actions.rules as the recipient for the rule] *****************************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Inserts/replaces audit rule for /etc/sudoers rule in rules.d] ***********************************************************************************
+ok: [localhost]
+
+TASK [Inserts/replaces audit rule for /etc/sudoers.d rule in rules.d] *********************************************************************************
+ok: [localhost]
+
+TASK [Inserts/replaces audit rule for /etc/sudoers in audit.rules] ************************************************************************************
+ok: [localhost]
+
+TASK [Inserts/replaces audit rule for /etc/sudoers.d in audit.rules] **********************************************************************************
+ok: [localhost]
+
+TASK [Set architecture for audit tasks] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=clock_settime)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key time-change] *****************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/time-change.rules as the recipient for the rule] *************************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578390.089578, 'inode': 92678, 'isgid': False, 'size': 138, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/time-change.rules', 'xusr': False, 'atime': 1594578390.9615786, 'isdir': False, 'ctime': 1594578390.0895786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+clock_settime[\\s]+|([\\s]+|[,])clock_settime([\\s]+|[,]))).*(?:-F[\\s]+a0=0x0[\\s]+)(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'clock_settime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/time-change.rules] ****************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=clock_settime)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+clock_settime[\\s]+|([\\s]+|[,])clock_settime([\\s]+|[,]))).*(?:-F[\\s]+a0=0x0[\\s]+)(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'clock_settime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=clock_settime)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key time-change] *****************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/time-change.rules as the recipient for the rule] *************************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578390.089578, 'inode': 92678, 'isgid': False, 'size': 138, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/time-change.rules', 'xusr': False, 'atime': 1594578390.9615786, 'isdir': False, 'ctime': 1594578390.0895786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+clock_settime[\\s]+|([\\s]+|[,])clock_settime([\\s]+|[,]))).*(?:-F[\\s]+a0=0x0[\\s]+)(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'clock_settime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/time-change.rules] ****************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=clock_settime)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+clock_settime[\\s]+|([\\s]+|[,])clock_settime([\\s]+|[,]))).*(?:-F[\\s]+a0=0x0[\\s]+)(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'clock_settime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Check if watch rule for /etc/localtime already exists in /etc/audit/rules.d/] *******************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with specified key audit_time_rules] ******************************************************************
+skipping: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Add watch rule for /etc/localtime in /etc/audit/rules.d/] ***************************************************************************************
+skipping: [localhost]
+
+TASK [Check if watch rule for /etc/localtime already exists in /etc/audit/audit.rules] ****************************************************************
+ok: [localhost]
+
+TASK [Add watch rule for /etc/localtime in /etc/audit/audit.rules] ************************************************************************************
+skipping: [localhost]
+
+TASK [Set architecture for audit tasks] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=settimeofday)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key audit_time_rules] ************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578740.957578, 'inode': 92690, 'isgid': False, 'size': 344, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/audit_time_rules.rules', 'xusr': False, 'atime': 1594579101.7975786, 'isdir': False, 'ctime': 1594578740.9615786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+settimeofday[\\s]+|([\\s]+|[,])settimeofday([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'settimeofday', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/audit_time_rules.rules] ***********************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=settimeofday)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+settimeofday[\\s]+|([\\s]+|[,])settimeofday([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'settimeofday', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=settimeofday)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key audit_time_rules] ************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578740.957578, 'inode': 92690, 'isgid': False, 'size': 344, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/audit_time_rules.rules', 'xusr': False, 'atime': 1594579101.7975786, 'isdir': False, 'ctime': 1594578740.9615786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+settimeofday[\\s]+|([\\s]+|[,])settimeofday([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'settimeofday', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/audit_time_rules.rules] ***********************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=settimeofday)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+settimeofday[\\s]+|([\\s]+|[,])settimeofday([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'settimeofday', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=stime)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key audit_time_rules] ************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578740.957578, 'inode': 92690, 'isgid': False, 'size': 344, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/audit_time_rules.rules', 'xusr': False, 'atime': 1594579101.7975786, 'isdir': False, 'ctime': 1594578740.9615786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+stime[\\s]+|([\\s]+|[,])stime([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'stime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/audit_time_rules.rules] ***********************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=stime)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+stime[\\s]+|([\\s]+|[,])stime([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'stime', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Set architecture for audit tasks] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=adjtimex)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key audit_time_rules] ************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578740.957578, 'inode': 92690, 'isgid': False, 'size': 344, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/audit_time_rules.rules', 'xusr': False, 'atime': 1594579101.7975786, 'isdir': False, 'ctime': 1594578740.9615786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+adjtimex[\\s]+|([\\s]+|[,])adjtimex([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'adjtimex', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/audit_time_rules.rules] ***********************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b32 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=adjtimex)
+
+TASK [Get number of matched syscalls for architecture b32 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b32[\\s]+)(?:.*(-S[\\s]+adjtimex[\\s]+|([\\s]+|[,])adjtimex([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'adjtimex', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/rules.d/] ************************************************************************
+ok: [localhost] => (item=adjtimex)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/rules.d/] *********************************************************************
+ok: [localhost]
+
+TASK [Search /etc/audit/rules.d for other rules with the key audit_time_rules] ************************************************************************
+ok: [localhost]
+
+TASK [Use /etc/audit/rules.d/audit_time_rules.rules as the recipient for the rule] ********************************************************************
+skipping: [localhost]
+
+TASK [Use matched file as the recipient for the rule] *************************************************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578740.957578, 'inode': 92690, 'isgid': False, 'size': 344, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/rules.d/audit_time_rules.rules', 'xusr': False, 'atime': 1594579101.7975786, 'isdir': False, 'ctime': 1594578740.9615786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 4, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit/rules.d'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+adjtimex[\\s]+|([\\s]+|[,])adjtimex([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['*.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'adjtimex', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/rules.d/audit_time_rules.rules] ***********************************************************************************
+skipping: [localhost]
+
+TASK [Declare list of syscals] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Declare number of syscalls] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Check existence of syscalls for architecture b64 in /etc/audit/audit.rules] *********************************************************************
+ok: [localhost] => (item=adjtimex)
+
+TASK [Get number of matched syscalls for architecture b64 in /etc/audit/audit.rules] ******************************************************************
+ok: [localhost]
+
+TASK [Construct rule: add rule list, action and arch] *************************************************************************************************
+skipping: [localhost]
+
+TASK [Construct rule: add syscalls] *******************************************************************************************************************
+skipping: [localhost] => (item={'files': [{'uid': 0, 'woth': False, 'mtime': 1594578741.673578, 'inode': 92691, 'isgid': False, 'size': 635, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/audit/audit.rules', 'xusr': False, 'atime': 1594579102.6535785, 'isdir': False, 'ctime': 1594578741.6735785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0640', 'islnk': False}], 'changed': False, 'msg': '', 'examined': 5, 'invocation': {'module_args': {'excludes': None, 'paths': ['/etc/audit'], 'file_type': 'file', 'age': None, 'contains': '^[\\s]*-a[\\s]+always,exit[\\s]+(?:.*-F[\\s]+arch=b64[\\s]+)(?:.*(-S[\\s]+adjtimex[\\s]+|([\\s]+|[,])adjtimex([\\s]+|[,]))).*(-k[\\s]+|-F[\\s]+key=)[\\S]+[\\s]*$', 'recurse': False, 'age_stamp': 'mtime', 'patterns': ['audit.rules'], 'depth': None, 'get_checksum': False, 'use_regex': False, 'follow': False, 'hidden': False, 'size': None}}, 'matched': 1, 'failed': False, 'item': 'adjtimex', 'ansible_loop_var': 'item'}) 
+
+TASK [Construct rule: add fields and key] *************************************************************************************************************
+skipping: [localhost]
+
+TASK [Insert the line in /etc/audit/audit.rules] ******************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure iptables is installed] *******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.ip_forward is set to 0] **************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.send_redirects is set to 0] *********************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.send_redirects is set to 0] *************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.rp_filter is set] *******************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.icmp_ignore_bogus_error_responses is set] ********************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.log_martians is set] ********************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.accept_redirects is set] ****************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.tcp_syncookies is set] ***************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.rp_filter is set] ***********************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.secure_redirects is set] ****************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.accept_redirects is set] ************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.secure_redirects is set] ************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.log_martians is set] ****************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.default.accept_source_route is set] *********************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.conf.all.accept_source_route is set] *************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv4.icmp_echo_ignore_broadcasts is set] **************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv6.conf.default.accept_ra is set] *******************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl net.ipv6.conf.all.accept_ra is set] ***********************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sudo is installed] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure aide is installed] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure AIDE is installed] ***********************************************************************************************************************
+ok: [localhost] => (item=aide)
+
+TASK [Configure Periodic Execution of AIDE] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Security patches are up to date] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /boot/grub2/grub.cfg] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0600 on /boot/grub2/grub.cfg] *************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /boot/grub2/grub.cfg] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /boot/grub2/grub.cfg] ***************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /boot/grub2/grub.cfg] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /boot/grub2/grub.cfg] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure sysctl kernel.randomize_va_space is set to 2] ********************************************************************************************
+ok: [localhost]
+
+TASK [disable core dumps with limits] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Deduplicate values from /etc/systemd/coredump.conf] *********************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/systemd/coredump.conf] **********************************************************************************************
+changed: [localhost]
+
+TASK [Ensure sysctl fs.suid_dumpable is set to 0] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Deduplicate values from /etc/systemd/coredump.conf] *********************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/systemd/coredump.conf] **********************************************************************************************
+changed: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service autofs] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Unit Socket Exists - autofs.socket] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket autofs] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/gshadow-] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0000 on /etc/gshadow-] ********************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/group] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/group] *******************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/shadow] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0000 on /etc/shadow] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/group] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/group] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/passwd] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/passwd] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/gshadow] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/gshadow] ***********************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/group] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/group] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/group-] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/group-] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/gshadow-] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/gshadow-] ****************************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/gshadow] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/gshadow] *****************************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/passwd-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/passwd-] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/shadow] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/shadow] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/passwd-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/passwd-] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/group-] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/group-] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/group-] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/group-] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/passwd] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/passwd] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/passwd-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/passwd-] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/gshadow-] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/gshadow-] **********************************************************************************************************
+skipping: [localhost]
+
+TASK [Test for existence /etc/shadow-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/shadow-] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/shadow] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/shadow] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/shadow-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0000 on /etc/shadow-] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/passwd] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0644 on /etc/passwd] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/shadow-] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/shadow-] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/gshadow] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0000 on /etc/gshadow] *********************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission nosuid are set on /var/tmp] ***************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission nosuid are set on var_removable_partition] ************************************************************************************
+ok: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission nodev are set on /var/tmp] ****************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission noexec are set on /var/tmp] ***************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/dev/shm'])
+ok: [localhost] => (item=['source', 'tmpfs'])
+ok: [localhost] => (item=['fstype', 'tmpfs'])
+ok: [localhost] => (item=['options', 'rw,nosuid,nodev,noexec'])
+
+TASK [Ensure permission noexec are set on /dev/shm] ***************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/tmp'])
+ok: [localhost] => (item=['source', 'UUID=a678cee7-becf-4eeb-88ef-e72c58a747bc'])
+ok: [localhost] => (item=['fstype', 'btrfs'])
+ok: [localhost] => (item=['options', 'subvol=/@/tmp,nosuid,noexec,nodev'])
+
+TASK [Ensure permission nosuid are set on /tmp] *******************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/dev/shm'])
+ok: [localhost] => (item=['source', 'tmpfs'])
+ok: [localhost] => (item=['fstype', 'tmpfs'])
+ok: [localhost] => (item=['options', 'rw,nosuid,nodev,noexec'])
+
+TASK [Ensure permission nosuid are set on /dev/shm] ***************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/tmp'])
+ok: [localhost] => (item=['source', 'UUID=a678cee7-becf-4eeb-88ef-e72c58a747bc'])
+ok: [localhost] => (item=['fstype', 'btrfs'])
+ok: [localhost] => (item=['options', 'subvol=/@/tmp,nosuid,noexec,nodev'])
+
+TASK [Ensure permission noexec are set on /tmp] *******************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission noexec are set on var_removable_partition] ************************************************************************************
+ok: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/dev/shm'])
+ok: [localhost] => (item=['source', 'tmpfs'])
+ok: [localhost] => (item=['fstype', 'tmpfs'])
+ok: [localhost] => (item=['options', 'rw,nosuid,nodev,noexec'])
+
+TASK [Ensure permission nodev are set on /dev/shm] ****************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure permission nodev are set on var_removable_partition] *************************************************************************************
+ok: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/home'])
+ok: [localhost] => (item=['source', 'UUID=a678cee7-becf-4eeb-88ef-e72c58a747bc'])
+ok: [localhost] => (item=['fstype', 'btrfs'])
+ok: [localhost] => (item=['options', 'subvol=/@/home,nodev'])
+
+TASK [Ensure permission nodev are set on /home] *******************************************************************************************************
+skipping: [localhost]
+
+TASK [Check information associated to mountpoint] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Create mount_info dictionary variable] **********************************************************************************************************
+ok: [localhost] => (item=['target', '/tmp'])
+ok: [localhost] => (item=['source', 'UUID=a678cee7-becf-4eeb-88ef-e72c58a747bc'])
+ok: [localhost] => (item=['fstype', 'btrfs'])
+ok: [localhost] => (item=['options', 'subvol=/@/tmp,nosuid,noexec,nodev'])
+
+TASK [Ensure permission nodev are set on /tmp] ********************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure libselinux1 is installed] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure mcstrans is removed] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure setroubleshoot is removed] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/ssh/sshd_config] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/ssh/sshd_config] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Find /etc/ssh/ file(s)] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Set permissions for /etc/ssh/ file(s)] **********************************************************************************************************
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.6895785, 'inode': 58280, 'isgid': False, 'size': 2602, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': False, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': False, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_rsa_key', 'xusr': False, 'atime': 1594580573.4935784, 'isdir': False, 'ctime': 1594580570.5335786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0400', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8095787, 'inode': 58285, 'isgid': False, 'size': 1381, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': False, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': False, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_dsa_key', 'xusr': False, 'atime': 1594526744.7335784, 'isdir': False, 'ctime': 1594580570.7135785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0400', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8135786, 'inode': 58287, 'isgid': False, 'size': 505, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': False, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': False, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_ecdsa_key', 'xusr': False, 'atime': 1594580573.4975786, 'isdir': False, 'ctime': 1594580570.8935785, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0400', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8175786, 'inode': 58289, 'isgid': False, 'size': 411, 'roth': False, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': False, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': False, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_ed25519_key', 'xusr': False, 'atime': 1594580573.4975786, 'isdir': False, 'ctime': 1594580571.0895786, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0400', 'islnk': False})
+
+TASK [Test for existence /etc/ssh/sshd_config] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/ssh/sshd_config] ***************************************************************************************************
+ok: [localhost]
+
+TASK [Find /etc/ssh/ file(s)] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Set permissions for /etc/ssh/ file(s)] **********************************************************************************************************
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.6895785, 'inode': 58284, 'isgid': False, 'size': 568, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_rsa_key.pub', 'xusr': False, 'atime': 1594580355.8415785, 'isdir': False, 'ctime': 1594580346.3455784, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8095787, 'inode': 58286, 'isgid': False, 'size': 604, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_dsa_key.pub', 'xusr': False, 'atime': 1594580355.8415785, 'isdir': False, 'ctime': 1594580346.3455784, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8135786, 'inode': 58288, 'isgid': False, 'size': 176, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_ecdsa_key.pub', 'xusr': False, 'atime': 1594580355.8415785, 'isdir': False, 'ctime': 1594580346.3455784, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False})
+ok: [localhost] => (item={'uid': 0, 'woth': False, 'mtime': 1594518463.8175786, 'inode': 58290, 'isgid': False, 'size': 96, 'roth': True, 'isuid': False, 'isreg': True, 'pw_name': 'root', 'gid': 0, 'ischr': False, 'wusr': True, 'xoth': False, 'rusr': True, 'nlink': 1, 'issock': False, 'rgrp': True, 'gr_name': 'root', 'path': '/etc/ssh/ssh_host_ed25519_key.pub', 'xusr': False, 'atime': 1594580355.8415785, 'isdir': False, 'ctime': 1594580346.3455784, 'isblk': False, 'xgrp': False, 'dev': 47, 'wgrp': False, 'isfifo': False, 'mode': '0644', 'islnk': False})
+
+TASK [Test for existence /etc/ssh/sshd_config] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0600 on /etc/ssh/sshd_config] *************************************************************************************************
+ok: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Deduplicate values from /etc/ssh/sshd_config] ***************************************************************************************************
+changed: [localhost]
+
+TASK [Insert correct line to /etc/ssh/sshd_config] ****************************************************************************************************
+changed: [localhost]
+
+TASK [Test for existence /etc/cron.monthly/] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/cron.monthly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.d/] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0700 on /etc/cron.d/] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.weekly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/cron.weekly/] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.hourly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0700 on /etc/cron.hourly/] ****************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.d/] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/cron.d/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/crontab] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0600 on /etc/crontab] *********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.daily/] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/cron.daily/] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.weekly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0700 on /etc/cron.weekly/] ****************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.hourly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/cron.hourly/] ******************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.daily/] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/cron.daily/] *******************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.hourly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/cron.hourly/] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.d/] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/cron.d/] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.monthly/] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/cron.monthly/] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.weekly/] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/cron.weekly/] ******************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.monthly/] **********************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0700 on /etc/cron.monthly/] ***************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/crontab] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure group owner 0 on /etc/crontab] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/crontab] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure owner 0 on /etc/crontab] *****************************************************************************************************************
+ok: [localhost]
+
+TASK [Test for existence /etc/cron.daily/] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure permission 0700 on /etc/cron.daily/] *****************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service squid] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - squid.socket] **************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket squid] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure xorg-x11-server-common is removed] *******************************************************************************************************
+ok: [localhost]
+
+TASK [Switch to multi-user runlevel] ******************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service avahi-daemon] *******************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - avahi-daemon.socket] *******************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket avahi-daemon] ********************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service snmpd] **************************************************************************************************************************
+ok: [localhost]
+
+TASK [Unit Socket Exists - snmpd.socket] **************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket snmpd] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service cups] ***************************************************************************************************************************
+ok: [localhost]
+
+TASK [Unit Socket Exists - cups.socket] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket cups] ****************************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service named] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - named.socket] **************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket named] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure openldap-servers is removed] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure openldap-clients is removed] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service rpcbind] ************************************************************************************************************************
+ok: [localhost]
+
+TASK [Unit Socket Exists - rpcbind.socket] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket rpcbind] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service nfs] ****************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - nfs.socket] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket nfs] *****************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service vsftpd] *************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - vsftpd.socket] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket vsftpd] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure chrony is installed] *********************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the package facts] ***********************************************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "msg": "Could not detect a supported package manager from the following list: ['portage', 'rpm', 'pkg', 'apt'], or the required Python library is not installed. Check warnings for details."}
+...ignoring
+
+TASK [Enable service chronyd] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Detect if chrony is already configured with pools or servers] ***********************************************************************************
+ok: [localhost]
+
+TASK [Configure remote time servers] ******************************************************************************************************************
+skipping: [localhost] => (item=0.pool.ntp.org) 
+skipping: [localhost] => (item=1.pool.ntp.org) 
+skipping: [localhost] => (item=2.pool.ntp.org) 
+skipping: [localhost] => (item=3.pool.ntp.org) 
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service dovecot] ************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - dovecot.socket] ************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket dovecot] *************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service smb] ****************************************************************************************************************************
+ok: [localhost]
+
+TASK [Unit Socket Exists - smb.socket] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket smb] *****************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service httpd] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - httpd.socket] **************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket httpd] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service dhcpd] **************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - dhcpd.socket] **************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket dhcpd] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure talk is removed] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure rsh is removed] **************************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure telnet is removed] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure ypbind is removed] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure ypserv is removed] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service tftp] ***************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - tftp.socket] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket tftp] ****************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Ensure tcpd (proving tcp_wrappers) is installed] ************************************************************************************************
+ok: [localhost]
+
+TASK [Gather the service facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable service xinetd] *************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Unit Socket Exists - xinetd.socket] *************************************************************************************************************
+ok: [localhost]
+
+TASK [Disable socket xinetd] **************************************************************************************************************************
+skipping: [localhost]
+
+PLAY RECAP ********************************************************************************************************************************************
+localhost                  : ok=305  changed=20   unreachable=0    failed=0    skipped=112  rescued=0    ignored=1   
+
