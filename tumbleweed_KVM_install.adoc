@@ -36,3 +36,9 @@ sudo hostnamectl set-hostname tumbleweed
 ----
 zypper -n install systemd-coredump python-xml python3-devel gcc ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
 ----
+
+----
+zypper addrepo https://download.opensuse.org/repositories/openSUSE:Leap:15.2/standard/openSUSE:Leap:15.2.repo
+zypper refresh
+zypper install libselinux
+----
