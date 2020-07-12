@@ -108,6 +108,7 @@ To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION
 ----
 
 ----
-sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> cd ..
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50> sudo ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml > sle15cisresult
 ----
 
