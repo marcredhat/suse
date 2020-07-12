@@ -1,5 +1,10 @@
 
 ----
 marc@localhost:~> sudo aide --config-check
+----
+
+----
 marc@localhost:~> sudo aide --i
+AIDE initialized database at /var/lib/aide/aide.db.new
+Number of entries:      93270
 ----
