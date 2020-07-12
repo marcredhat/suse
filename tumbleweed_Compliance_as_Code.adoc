@@ -67,5 +67,46 @@ marc@tumbleweed:~/scap-security-guide-0.1.50> source molecule_ansible/bin/activa
 ----
 
 ----
-(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install lxml ansible testinfra molecule podman python-vagrant ansible-lint flake8 molecule[lint] molecule[podman]
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install lxml ansible testinfra molecule \
+podman python-vagrant ansible-lint flake8 molecule[lint] molecule[podman]
+----
+
+----
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> molecule init role marc-role --driver-name podman
+--> Initializing new role marc-role...
+Initialized role in /home/marc/scap-security-guide-0.1.50/marc-role successfully.
+----
+
+----
+cd marc-role/molecule/default
+wget https://raw.githubusercontent.com/marcredhat/molecule/master/molecule.yml
+wget https://raw.githubusercontent.com/marcredhat/molecule/master/verify.yml
+cd ../..
+----
+
+----
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50/marc-role> su root
+Password:
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role>
+----
+
+----
+podman  login -u="<user>"   https://registry.redhat.io
+Password:
+Login Succeeded!
+----
+
+
+----
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> cp /home/marc/scap-security-guide-0.1.50/molecule_ansible/bin/molecule /usr/bin
+----
+
+
+----
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> sudo MOLECULE_NO_LOG="false" ANSIBLE_SSH_PIPELINING=False molecule test
+----
+
+
+----
+
 ----
