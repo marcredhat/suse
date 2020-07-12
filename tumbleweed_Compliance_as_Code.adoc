@@ -101,6 +101,9 @@ Login Succeeded!
 (molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> cp /home/marc/scap-security-guide-0.1.50/molecule_ansible/bin/molecule /usr/bin
 ----
 
+----
+(molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> pip3 install molecule
+----
 
 ----
 (molecule_ansible) root@tumbleweed:/home/marc/scap-security-guide-0.1.50/marc-role> sudo MOLECULE_NO_LOG="false" ANSIBLE_SSH_PIPELINING=False molecule test
