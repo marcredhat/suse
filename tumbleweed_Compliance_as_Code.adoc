@@ -67,5 +67,5 @@ marc@tumbleweed:~/scap-security-guide-0.1.50> source molecule_ansible/bin/activa
 ----
 
 ----
-(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install xml ansible testinfra molecule podman python-vagrant ansible-lint flake8 molecule[lint] molecule[podman]
+(molecule_ansible) marc@tumbleweed:~/scap-security-guide-0.1.50> pip3 install lxml ansible testinfra molecule podman python-vagrant ansible-lint flake8 molecule[lint] molecule[podman]
 ----
