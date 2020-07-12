@@ -28,3 +28,26 @@ marc@localhost:~/scap-security-guide-0.1.50> ls -latr | grep 'suse\|sle'
 -rw-r--r-- 1 marc users  4107531 May 15 03:14 ssg-sle12-ds-1.2.xml
 -rw-r--r-- 1 marc users  3950193 May 15 03:14 ssg-sle11-ds-1.2.xml
 ----
+
+
+----
+marc@localhost:~/scap-security-guide-0.1.50> ls ansible -latr | grep 'suse\|sle'
+-rw-r--r-- 1 marc users   3672 May 15 03:14 opensuse-playbook-standard.yml
+-rw-r--r-- 1 marc users   3701 May 15 03:14 sle12-playbook-standard.yml
+-rw-r--r-- 1 marc users   3702 May 15 03:14 sle11-playbook-standard.yml
+-rw-r--r-- 1 marc users   3540 May 15 03:14 sle11-playbook-server.yml
+-rw-r--r-- 1 marc users  89700 May 15 03:14 sle15-playbook-standard.yml
+-rw-r--r-- 1 marc users 183594 May 15 03:14 sle15-playbook-cis.yml
+-rw-r--r-- 1 marc users   1508 May 15 03:14 sle12-playbook-stig.yml
+----
+
+
+----
+These Ansible Playbooks are generated from SCAP profiles available for the products.
+
+To apply the playbook on your local machine run: (THIS WILL CHANGE CONFIGURATION OF THE MACHINE!)
+----
+
+----
+ansible-playbook -i "localhost," -c local ansible/sle15-playbook-cis.yml
+----
