@@ -46,4 +46,5 @@ zypper install libselinux*
 
 ----
 sudo chmod -R 400 /etc/ssh/
+sudo chown root -R /etc/ssh
 ----
