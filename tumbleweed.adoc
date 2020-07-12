@@ -33,7 +33,8 @@ zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux
 ----
 
 ----
-https://medium.com/information-and-technology/so-what-is-apparmor-64d7ae211ed
+AppArmor: https://medium.com/information-and-technology/so-what-is-apparmor-64d7ae211ed
+PAM: https://medium.com/information-and-technology/wtf-is-pam-99a16c80ac57
 ----
 
 
