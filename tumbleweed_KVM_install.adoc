@@ -29,6 +29,9 @@ VERSION_ID="20200708"
 PRETTY_NAME="openSUSE Tumbleweed"
 ----
 
+----
+sudo hostnamectl set-hostname tumbleweed
+----
 
 ----
 zypper -n install ansible podman skopeo buildah  net-tools tcpdump tmux aide seccheck john
