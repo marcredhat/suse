@@ -1,6 +1,4 @@
-----
-https://documentation.suse.com/sles/12-SP4/pdf/book-hardening_color_en.pdf
-----
+
 
 ----
 marc@localhost:~> ldd /usr/sbin/sshd | grep pam
