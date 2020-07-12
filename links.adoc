@@ -1,0 +1,10 @@
+
+----
+
+
+https://documentation.suse.com/sles/15-SP2/pdf/book-hardening_color_draft_en.pdf
+
+https://github.com/SUSE/suse-best-practices
+
+
+----
