@@ -1,0 +1,5 @@
+
+----
+marc@localhost:~> sudo aide --config-check
+marc@localhost:~> sudo aide --i
+----
