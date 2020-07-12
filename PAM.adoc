@@ -1,0 +1,4 @@
+----
+marc@localhost:~> ldd /usr/sbin/sshd | grep pam
+libpam.so.0 => /lib64/libpam.so.0 (0x00007fcfaddd3000)
+----
