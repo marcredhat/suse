@@ -1,0 +1,50 @@
+144a145
+>       ignore_errors: true
+163,165c164,168
+<         - name: Gather the package facts
+<           package_facts:
+<             manager: auto
+---
+>         #- name: Gather the package facts
+>           #ignore_errors: yes
+>           #package_facts:
+>           #  manager: auto
+>           #ignore_errors: yes
+172,173c175,176
+<           when:
+<             - '"audit" in ansible_facts.packages'
+---
+>             #when:
+>             #- '"audit" in ansible_facts.packages'
+3597c3600
+<     - name: Ensure libselinux is installed
+---
+>     - name: Ensure libselinux1 is installed
+3599c3602
+<         name: libselinux
+---
+>         name: libselinux1
+3693c3696
+<         mode: '0640'
+---
+>         mode: '0400'
+5223a5227
+>           #ignore_errors: yes
+5225a5230
+>           ignore_errors: yes
+5232,5233c5237,5238
+<           when:
+<             - '"chrony" in ansible_facts.packages'
+---
+>             #when:
+>             #  - '"chrony" in ansible_facts.packages'
+5646c5651
+<     - name: Ensure tcp_wrappers is installed
+---
+>     - name: Ensure tcpd (proving tcp_wrappers) is installed
+5648c5653
+<         name: tcp_wrappers
+---
+>         name: tcpd
+5727d5731
+< 
